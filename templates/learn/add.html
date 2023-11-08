@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'learn/css/add.css' %}">
+    <title>Add_object</title>
+</head>
+<body>
+    
+    <div class="hero">
+        <nav>
+        <h2 class="logo"> Add<span> Context</span></h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+        </ul>
+        <button type="button">Subscribe</button>
+        </nav>
+    </div>
+
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label >Question Number </label>
+            <input type="number" name="ques_no">
+        </div>
+        <div>
+            <label >Question Heading </label>
+            <input type="text" name="ques_heading">
+        </div>
+        <div>
+            <label >Description</label>
+            <input type="text" name="description" placeholder="Enter a description">
+        </div>
+
+        <div>
+            <label >select a category</label>
+            <select name="category" >
+                <option value="none"> select a category .....</option>
+                {% for category in categories %}
+                <option value='{{category.id}}'>{{ category.name}}</option>
+                {% endfor %}
+      
+            </select>
+        </div>
+
+        <div>
+            <label >Create a new category </label>
+            <input type="text" name="category_new">
+        </div>
+
+        <div>
+            <label >Question image </label>
+            <input type="file" name="ques_image">
+        </div>
+        <div>
+            <label >Answer1 image </label>
+            <input type="file" name="ans_image">
+        </div>
+        <div>
+            <label >Answer2 image </label>
+            <input type="file" name="ans_second_image">
+        </div>
+        <div>
+            <label >Question url</label>
+            <input type="url" name="ques_url">
+        </div>
+        <div>
+            <label >Answer url</label>
+            <input type="url" name="ans_url">
+        </div>
+
+        <button type="submit">submit</button>
+    </form>
+
+    <div>
+
+        <button type="button"><a href="http://localhost:8000/">Gallery</a></button>
+        <!-- <a href="http://localhost:8000/">Gallery</a> -->
+    </div>
+</body>
+</html>

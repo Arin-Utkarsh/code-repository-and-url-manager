@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urls</title>
+    <link rel="stylesheet" href="{% static 'learn/css/url.css' %}">
+</head>
+<body>
+    <h1>Testing</h1>
+  
+    <div class="container">
+        <div  style="background-color: orange;"><a href="{% url 'gallery' %}" ">Gallery</a></div>
+        {% for object in url_objects %}
+    
+        <div  style="color: #ea1538;" >{{object.url_heading}}</div>
+        <div><a href="{{object.url_link}}" target="_blank">ClickLink</a></div>
+        <div>{{object.url_description}}</div>
+    
+        {% endfor %}
+    </div>
+</body>
+</html>

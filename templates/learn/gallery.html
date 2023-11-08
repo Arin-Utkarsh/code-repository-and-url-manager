@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="{% static 'learn/css/gallery.css' %}">
+</head>
+<body>
+
+    <div class="hero">
+      <nav>
+      <h2 class="logo"><span> Creative</span> Mind Agency</h2>
+      <ul>
+
+        <li class="item"><a href="{% url 'gallery' %}">All</a></li>
+
+        {% for category in categories %}
+        <li class="item"><a href="{% url 'gallery' %}?category={{category.name}}">{{ category.name }}</a></li>
+        {% endfor %}
+
+        <li class="linkt"><a style="color: #ea1538;" href="{% url 'urls' %}">Links</a></li>
+
+        <!-- <li class="item"><a href="http://localhost:8000/add_context/">Add Context</a></li> -->
+      </ul>
+      <button type="button"><a href="http://localhost:8000/add_context/">Add Context</a></button>
+      <button type="button"><a href="{% url 'snippets' %}">Snippets</a></button>
+      
+      </nav>
+     
+  </div>
+  <div style="height: 30px; "></div> 
+
+      {% for x in total_objects %}
+    
+          <div id="container" style="margin-left:  9rem; margin-right: 10rem;margin-bottom: 5rem;">
+
+                <h3>{{ x.ques_heading }}</h3>
+                <img class="imageque1" src="{{x.ques_image.url}}" alt="hi">
+                <div style="height: 30px; "></div>
+                <img class="imageque1" src="{{ x.ans_image.url }}" alt="hi"> 
+                <div style="height: 30px; "></div> 
+                <p>{{ x.description }}</p> 
+                <span class="button1"><a href="{{x.ques_url}}">Question Link</a></span>
+                <span class="button1"><a href="{{x.ans_url}}">Answer Link</a></span>
+                <div style="height: 30px; "></div>
+
+         </div>
+            
+
+    {% endfor %}
+</body>
+</html>

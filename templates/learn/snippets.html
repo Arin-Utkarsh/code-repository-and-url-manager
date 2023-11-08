@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urls</title>
+    <link rel="stylesheet" href="{% static 'learn/css/snippets.css' %}">
+</head>
+<body>
+    <h1>Testing</h1>
+  
+    <div class="container"  style="position: relative;width: 970px;padding-right: 15px;padding-left: 15px; margin-right: auto;margin-left: auto;">
+        <div  style="background-color: rgb(29, 232, 114);"><a href="{% url 'gallery' %}" ">Gallery</a></div>
+        {% for object in url_objects %}
+    
+        <div  style="color: #ea1538;" >{{object.snippet_heading}}</div>
+        <div> <pre>{{object.snippet_text}}</pre>  </div>
+    
+        {% endfor %}
+    </div>
+</body>
+</html>
